@@ -42,3 +42,8 @@ export default function GameBoard({handlePlayerOnClick }) {
 		</>
 	)
 }
+
+
+
+
+git remote set-url origin https://github.com/Nilkh/Tic-Tac-Toe-NK.git
