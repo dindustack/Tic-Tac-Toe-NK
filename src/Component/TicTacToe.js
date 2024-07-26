@@ -1,22 +1,38 @@
 import React, { useState, useEffect } from 'react'
 import GameBoard from './GameBoard'
-import { getCategories } from './api'
+import data from './data'
+
+
 export default function TicTacToe() {
-	const [tile, setTile] = useState({})
-    console.log(tile)
+	const [tile, setTile] = useState([])
+	 const [currentPlayer, setCurrentPlayer] = useState(tile)
 	useEffect(() => {
-		getCategories()
-			.then((data) => {
-				setTile(data)
-			})
-			.catch((error) => {
-				console.error('Error fetching data:', error)
-			})
+		console.log(data)
+		setTile(data)
 	}, [])
-	return (
-		<div>
-			<h1>Tic Tac Toe</h1>
-			<GameBoard  tile={tile}/>
-		</div>
-	)
+
+	function handlePlayerOnClick(index) {
+		if(tile[index] !== null){
+			return;
+		}
+
+		const newTiles = [...tile]
+		newTiles[index] = currentPlayer
+		setTile(newTiles)
+		if (currentPlayer === data) {
+			setCurrentPlayer(setTile)
+		} else {
+			setCurrentPlayer(setTile)
+		}
+	}
+    return (
+        <>
+		
+            <h1>Tic Tac Toe</h1>
+            <GameBoard tile={tile} handlePlayerOnClick={handlePlayerOnClick} />
+        </>
+    );
 }
+		
+
+	

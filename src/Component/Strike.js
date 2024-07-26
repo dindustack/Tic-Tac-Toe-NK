@@ -1,7 +1,9 @@
-export default function Strike() {
-    return ( 
-        <di></di>
-     );
+export default function Strike({ winningLine }) {
+	return (
+		<>
+			<div className={`strike ${winningLine}`}></div>
+		</>
+	)
 }
 
  
